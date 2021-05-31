@@ -28,9 +28,9 @@
         </div>
 
         <div class="form-group">
-            <label for="baner">Banner</label>
-            <input type="file" class="form-control-file" id="judul" name="judul">
-            @error('judul')
+            <label for="banner">Banner</label>
+            <input type="file" class="form-control-file" id="banner" name="banner">
+            @error('banner')
               <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>

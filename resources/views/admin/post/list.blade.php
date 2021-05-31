@@ -21,6 +21,8 @@
         <tr>
           <th>No</th>
           <th>Judul</th>
+          <th>Banner</th>
+          <th>Isi Post</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -29,6 +31,8 @@
         <tr>
           <th>{{$loop->iteration}}</th>
           <td><a href="{{('/barang/list/'.$post->id)}}">{{$post->judul}}</a></td>
+          <td class="text-center" ><img src="{{asset($post->banner)}}" style="width:50%;height:auto;" alt=""></td>
+          <td>{{$post->isiPost}}</td>
           <td>
             <a href="{{('/barang/list/'.$post->id.'/edit')}}">Edit</a> | <a href="{{('/barang/list/delete/'.$post->id)}}">Delete</a>
           </td>

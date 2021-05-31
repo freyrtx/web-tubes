@@ -32,7 +32,7 @@
         <tr>
           <th>{{$loop->iteration}}</th>
           <td><a href="{{('/barang/list/'.$barang->id)}}">{{$barang->barang}}</a></td>
-          <td><img src="{{asset($barang->fotoBarang)}}" alt=""></td>
+          <td class="text-center" ><img src="{{asset($barang->fotoBarang)}}" style="width:50%;height:auto;" alt=""></td>
           <td>{{$barang->harga}}</td>
           <td>{{$barang->stok == 'A' ? 'Ada' : 'Habis'}}</td>
           <td>

@@ -100,13 +100,13 @@ class SuperController extends Controller
     }
     //create valid
     public function addPost(Request $request){
-        $validateData = $request->validate()([
+        $validateData = $request->validate([
             'judul'     => 'required',
             'banner'    => 'nullable|file|image',
             'isiPost'   => 'required',
         ]);
 
-        $extFile = $request->berkas->getClientOriginalExtension();
+        $extFile = $request->banner->getClientOriginalExtension();
         $nameFile = $validateData['judul'].'-'.time().'.'.$extFile;
 
         $post = new Post();
