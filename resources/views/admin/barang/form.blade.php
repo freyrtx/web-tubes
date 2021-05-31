@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            <label>Jenis Kelamin</label>
+            <label>Ketersediaan</label>
             <div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="stok"

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\GuestController;
 use App\Http\Controllers\SuperController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -34,8 +34,6 @@ Route::group(['prefix' => 'guest'], function()
 
 Route::group(['prefix' => 'admin'], function()
 {
-    Route::get('/', [SuperController::class, 'index'])->name('admin.index');
-
     Route::get('/member/list', [SuperController::class, 'listMember'])->name('admin.member.list');
     Route::get('/member/list/form', [SuperController::class, 'formMember'])->name('admin.member.form');
     Route::get('/member/list/{user}', [SuperController::class, 'showMember'])->name('admin.member.detail');
@@ -49,27 +47,29 @@ Route::group(['prefix' => 'admin'], function()
     Route::patch('/barang/list', [SuperController::class, 'upBarang'])->name('admin.barang.update');
     Route::get('/barang/list/delete/{barang}', [SuperController::class, 'delBarang'])->name('admin.barang.delete');
 
-    Route::get('/post/list', [SuperController::class, 'listMember'])->name('admin.member.list');
-    Route::get('/post/list/form', [SuperController::class, 'formMember'])->name('admin.member.form');
-    Route::post('/post/list', [SuperController::class, 'addMember'])->name('admin.member.add');
-    Route::get('/post/list/{post}', [SuperController::class, 'showMember'])->name('admin.member.detail');
-    Route::get('/post/list/{post}/edit', [SuperController::class, 'formUpMember'])->name('admin.member.edit');
-    Route::patch('/post/list', [SuperController::class, 'upMember'])->name('admin.member.update');
-    Route::get('/post/list/delete/{post}', [SuperController::class, 'delMember'])->name('admin.member.delete');
+    Route::get('/post/list', [SuperController::class, 'listPost'])->name('admin.post.list');
+    Route::get('/post/list/form', [SuperController::class, 'formPost'])->name('admin.post.form');
+    Route::post('/post/list', [SuperController::class, 'addPost'])->name('admin.post.add');
+    Route::get('/post/list/{post}', [SuperController::class, 'showPost'])->name('admin.post.detail');
+    Route::get('/post/list/{post}/edit', [SuperController::class, 'formUpPost'])->name('admin.post.edit');
+    Route::patch('/post/list', [SuperController::class, 'upPost'])->name('admin.post.update');
+    Route::get('/post/list/delete/{post}', [SuperController::class, 'delPost'])->name('admin.post.delete');
 });
+
+Auth::routes();
 
 Route::group(['prefix' => 'member', 'middleware' => 'auth'], function()
 {
-    Route::get('/', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/', [HomeController::class, 'index'])->name('member.index');
 
-    Route::get('/barang/list', [MemberController::class, 'listBarang'])->name('member.barang.list');
-    Route::get('/barang/list/{barang}', [MemberController::class, 'showBarang'])->name('member.barang.detail');
+    Route::get('/barang/list', [HomeController::class, 'listBarang'])->name('member.barang.list');
+    Route::get('/barang/list/{barang}', [HomeController::class, 'showBarang'])->name('member.barang.detail');
 
-    Route::get('/post/list', [MemberController::class, 'listPost'])->name('member.post.list');
-    Route::get('/post/list/{post}', [MemberController::class, 'showPost'])->name('member.post.detail');
+    Route::get('/post/list', [HomeController::class, 'listPost'])->name('member.post.list');
+    Route::get('/post/list/{post}', [HomeController::class, 'showPost'])->name('member.post.detail');
 });
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

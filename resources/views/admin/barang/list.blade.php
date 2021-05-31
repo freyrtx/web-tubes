@@ -31,12 +31,12 @@
         @forelse ($barangs as $barang)
         <tr>
           <th>{{$loop->iteration}}</th>
-          <td><a href="{{('/barang/list/'.$user->id)}}">{{$barang->nama}}</a></td>
+          <td><a href="{{('/barang/list/'.$barang->id)}}">{{$barang->barang}}</a></td>
           <td><img src="{{asset($barang->fotoBarang)}}" alt=""></td>
           <td>{{$barang->harga}}</td>
           <td>{{$barang->stok == 'A' ? 'Ada' : 'Habis'}}</td>
           <td>
-            <a href="{{('/barang/list/'.$user->id.'/edit')}}">Edit</a> | <a href="{{('/barang/list/delete/'.$user->id)}}">Delete</a>
+            <a href="{{('/barang/list/'.$barang->id.'/edit')}}">Edit</a> | <a href="{{('/barang/list/delete/'.$barang->id)}}">Delete</a>
           </td>
         </tr>
 
