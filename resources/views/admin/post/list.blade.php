@@ -5,7 +5,6 @@
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/member/list')}}">Membership</a></li>
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/barang/list')}}">Barang</a></li>
     <li class="nav-item-active"><a class="nav-link js-scroll-trigger" href="{{url('admin/post/list')}}">Post</a></li>
-    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/pesanan/list')}}">Pesanan</a></li>
 </ul>
 @endsection
 
@@ -17,7 +16,7 @@
         <a class="btn btn-success col-lg-3 text-lg-center" href="{{('/admin/post/list/form')}}">Tambah Post</a>
     </div>
   <table class="table mt-4">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
         <tr>
           <th>No</th>
           <th>Judul</th>
@@ -31,7 +30,7 @@
         <tr>
           <th>{{$loop->iteration}}</th>
           <td><a href="{{('/barang/list/'.$post->id)}}">{{$post->judul}}</a></td>
-          <td class="text-center" ><img src="{{asset($post->banner)}}" style="width:50%;height:auto;" alt=""></td>
+          <td class="text-center" ><img src="{{asset($post->banner)}}"  alt=""></td>
           <td>{{$post->isiPost}}</td>
           <td>
             <a href="{{('/barang/list/'.$post->id.'/edit')}}">Edit</a> | <a href="{{('/barang/list/delete/'.$post->id)}}">Delete</a>

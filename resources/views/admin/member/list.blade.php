@@ -5,7 +5,6 @@
     <li class="nav-item-active"><a class="nav-link js-scroll-trigger" href="{{url('admin/member/list')}}">Membership</a></li>
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/barang/list')}}">Barang</a></li>
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/post/list')}}">Post</a></li>
-    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/pesanan/list')}}">Pesanan</a></li>
 </ul>
 @endsection
 
@@ -16,7 +15,7 @@
         <h1 class="col-lg-8 text-lg-left">Membership List</h1>
         <a class="btn btn-success col-lg-3 text-lg-center" href="{{('/admin/member/list/form')}}">Tambah Member</a>
     </div>
-  <table class="table mt-4">
+  <table class="table mt-4 text-center">
     <thead class="thead-dark">
         <tr>
           <th>No</th>
@@ -36,7 +35,7 @@
           <td>{{$user->nohp}}</td>
           <td>{{$user->alamat}}</td>
           <td>
-            <a href="{{('/member/list/'.$user->id.'/edit')}}">Edit</a> | <a href="{{('/member/list/delete/'.$user->id)}}">Delete</a>
+            <a href="{{('/member/list/delete/'.$user->id)}}">Delete</a>
           </td>
         </tr>
 

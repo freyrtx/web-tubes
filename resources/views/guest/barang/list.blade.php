@@ -18,7 +18,7 @@
         <h1 class="col-lg-8 text-lg-left">List Barang</h1>
     </div>
   <table class="table mt-4">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
         <tr>
           <th>No</th>
           <th>Nama</th>
@@ -31,8 +31,8 @@
         @forelse ($barangs as $barang)
         <tr>
           <th>{{$loop->iteration}}</th>
-          <td><a href="{{('/barang/list/'.$user->id)}}">{{$barang->barang}}</a></td>
-          <td><img src="{{asset($barang->fotoBarang)}}" alt=""></td>
+          <td><a href="{{('/barang/list/'.$barang->id)}}">{{$barang->barang}}</a></td>
+          <td class="text-center" ><img src="{{asset($barang->fotoBarang)}}" style="width:50%;height:auto;" alt=""></td>
           <td>{{$barang->harga}}</td>
           <td>{{$barang->stok == 'A' ? 'Ada' : 'Habis'}}</td>
         </tr>

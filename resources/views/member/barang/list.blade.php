@@ -4,7 +4,7 @@
 <ul class="navbar-nav text-uppercase ml-auto">
     <li class="nav-item-active"><a class="nav-link js-scroll-trigger" href="{{url('member/barang/list')}}">Barang</a></li>
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('member/post/list')}}">Post</a></li>
-    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('member/pesanan/list')}}">Pesanan</a></li>
+
     <li class="nav-item">
 
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
@@ -33,7 +33,7 @@
         <h1 class="col-lg-8 text-lg-left">List Barang</h1>
     </div>
   <table class="table mt-4">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
         <tr>
           <th>No</th>
           <th>Nama</th>
@@ -48,7 +48,7 @@
         <tr>
           <th>{{$loop->iteration}}</th>
           <td><a href="{{('/barang/list/'.$barang->id)}}">{{$barang->nama}}</a></td>
-          <td><img src="{{asset($barang->fotoBarang)}}" alt=""></td>
+          <td class="text-center" ><img src="{{asset($barang->fotoBarang)}}" style="width:50%;height:auto;" alt=""></td>
           <td>{{$barang->harga}}</td>
           <td>{{$barang->stok == 'A' ? 'Ada' : 'Habis'}}</td>
           <td><a href="{{('/barang/list/'.$barang->id.'/edit')}}">Pesan</a></td>
